@@ -73,7 +73,7 @@ pipeline {
                 dir('ansible') {
                     sh """
                     echo '[green]' > inventory.ini
-                    echo '${env.GREEN_IP}' >> inventory.ini
+                    echo 'green_server ansible_host=${env.GREEN_IP} ansible_user=ec2-user ansible_ssh_private_key_file=./key.pem' >> inventory.ini
                     """
 
                     sh 'ansible-playbook -i inventory.ini install_apache.yml'
