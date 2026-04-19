@@ -29,18 +29,30 @@ const Home = () => {
   );
 
   return (
-    <div className="home-container">
-      <section className="blog-grid" style={{ marginTop: '0' }}>
+    <div className="container py-5">
+      <div className="text-center mb-5 mt-4">
+        <h1 className="display-4 fw-bold text-white mb-3">CloudBlog Secure</h1>
+      </div>
+
+      <div className="row g-4">
         {loading ? (
-          <div className="loader">Loading...</div>
+          <div className="col-12 text-center py-5">
+            <div className="spinner-border text-primary" role="status">
+              <span className="visually-hidden">Loading...</span>
+            </div>
+          </div>
         ) : filteredBlogs.length > 0 ? (
           filteredBlogs.map(blog => (
-            <BlogCard key={blog._id} blog={blog} />
+            <div key={blog._id} className="col-12 col-md-6 col-lg-4">
+              <BlogCard blog={blog} />
+            </div>
           ))
         ) : (
-          <p className="no-results">No blogs found matching "{searchTerm}"</p>
+          <div className="col-12 text-center py-5">
+            <p className="text-muted fs-4">No blogs found matching "{searchTerm}"</p>
+          </div>
         )}
-      </section>
+      </div>
     </div>
   );
 };

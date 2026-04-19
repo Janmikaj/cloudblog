@@ -28,61 +28,63 @@ const Register = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Register</h2>
-        <p>Create a new account</p>
-        
-        {error && <div className="error-message">{error}</div>}
-        
-        <form onSubmit={handleRegister} className="login-form">
-          <div className="form-group">
-            <label>Username</label>
-            <input 
-              type="text" 
-              value={username} 
-              onChange={(e) => setUsername(e.target.value)}
-              className="form-input"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Email</label>
-            <input 
-              type="email" 
-              value={email} 
-              onChange={(e) => setEmail(e.target.value)}
-              className="form-input"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-input"
-              required
-            />
-          </div>
-          <div className="form-group">
-            <label>Role</label>
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              className="form-input"
-            >
-              <option value="user">User</option>
-              <option value="editor">Editor</option>
-              <option value="admin">Admin</option>
-            </select>
-          </div>
-          <button type="submit" className="btn-primary full-width">Register</button>
-        </form>
-        <p style={{ marginTop: '15px', textAlign: 'center' }}>
-          Already have an account? <Link to="/login">Login here</Link>
-        </p>
+    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+      <div className="card bg-dark text-white p-4 border-secondary shadow-lg" style={{ width: '100%', maxWidth: '400px', borderRadius: '1.5rem' }}>
+        <div className="card-body">
+          <h2 className="card-title text-center fw-bold mb-2">Register</h2>
+          <p className="text-muted text-center mb-4">Create a new account</p>
+          
+          {error && <div className="alert alert-danger py-2">{error}</div>}
+          
+          <form onSubmit={handleRegister}>
+            <div className="mb-3">
+              <label className="form-label text-light small fw-bold">Username</label>
+              <input 
+                type="text" 
+                value={username} 
+                onChange={(e) => setUsername(e.target.value)}
+                className="form-control bg-transparent text-white border-secondary"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label text-light small fw-bold">Email</label>
+              <input 
+                type="email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)}
+                className="form-control bg-transparent text-white border-secondary"
+                required
+              />
+            </div>
+            <div className="mb-3">
+              <label className="form-label text-light small fw-bold">Password</label>
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-control bg-transparent text-white border-secondary"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="form-label text-light small fw-bold">Role</label>
+              <select
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                className="form-select bg-transparent text-white border-secondary"
+              >
+                <option value="user" className="bg-dark">User</option>
+                <option value="editor" className="bg-dark">Editor</option>
+                <option value="admin" className="bg-dark">Admin</option>
+              </select>
+            </div>
+            <button type="submit" className="btn btn-primary w-100 rounded-pill py-2 fw-bold">Register</button>
+          </form>
+          <p className="mt-4 text-center small text-muted">
+            Already have an account? <Link to="/login" className="text-primary text-decoration-none fw-bold">Login here</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

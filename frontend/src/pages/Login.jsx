@@ -22,37 +22,41 @@ const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-box">
-        <h2>Welcome Back</h2>
-        <p>Sign in to your account</p>
-        
-        {error && <div className="error-message">{error}</div>}
-        
-        <form onSubmit={handleLogin} className="login-form">
-          <div className="form-group">
-            <label>Username or Email</label>
-            <input 
-              type="text" 
-              value={identity} 
-              onChange={(e) => setIdentity(e.target.value)}
-              className="form-input"
-            />
-          </div>
-          <div className="form-group">
-            <label>Password</label>
-            <input 
-              type="password" 
-              value={password} 
-              onChange={(e) => setPassword(e.target.value)}
-              className="form-input"
-            />
-          </div>
-          <button type="submit" className="btn-primary full-width">Login</button>
-        </form>
-        <p style={{ marginTop: '15px', textAlign: 'center' }}>
-          Don't have an account? <Link to="/register">Register here</Link>
-        </p>
+    <div className="container d-flex justify-content-center align-items-center" style={{ minHeight: '80vh' }}>
+      <div className="card bg-dark text-white p-4 border-secondary shadow-lg" style={{ width: '100%', maxWidth: '400px', borderRadius: '1.5rem' }}>
+        <div className="card-body">
+          <h2 className="card-title text-center fw-bold mb-2">Welcome Back</h2>
+          <p className="text-muted text-center mb-4">Sign in to your account</p>
+          
+          {error && <div className="alert alert-danger py-2">{error}</div>}
+          
+          <form onSubmit={handleLogin}>
+            <div className="mb-3">
+              <label className="form-label text-light small fw-bold">Username or Email</label>
+              <input 
+                type="text" 
+                value={identity} 
+                onChange={(e) => setIdentity(e.target.value)}
+                className="form-control bg-transparent text-white border-secondary"
+                required
+              />
+            </div>
+            <div className="mb-4">
+              <label className="form-label text-light small fw-bold">Password</label>
+              <input 
+                type="password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)}
+                className="form-control bg-transparent text-white border-secondary"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary w-100 rounded-pill py-2 fw-bold">Login</button>
+          </form>
+          <p className="mt-4 text-center small text-muted">
+            Don't have an account? <Link to="/register" className="text-primary text-decoration-none fw-bold">Register here</Link>
+          </p>
+        </div>
       </div>
     </div>
   );

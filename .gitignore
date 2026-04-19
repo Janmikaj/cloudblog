@@ -3,3 +3,10 @@ node_modules/
 .DS_Store
 dist/
 build/
+.terraform/
+*.tfstate
+*.tfstate.*
+security_reports/
+*.tar.gz
+app/
+ansible/key.pem

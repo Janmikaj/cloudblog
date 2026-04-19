@@ -475,3 +475,70 @@ a {
   color: var(--primary);
   margin-bottom: 1rem;
 }
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .navbar-links {
+    order: 2;
+    flex: 1 1 100%;
+    justify-content: space-between;
+    gap: 0.8rem;
+    padding-top: 0.5rem;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .navbar-search {
+    flex: 1 1 100%;
+    margin-right: 0;
+  }
+
+  .navbar-brand {
+    order: 1;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .blog-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .login-box, .editor-box, .blog-view-container {
+    padding: 1.5rem;
+  }
+
+  .blog-view-header h1 {
+    font-size: 1.8rem;
+  }
+
+  .admin-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-brand {
+    font-size: 1.2rem;
+  }
+
+  .navbar-links {
+    gap: 0.8rem;
+    font-size: 0.9rem;
+  }
+
+  .btn-primary, .btn-secondary, .btn-danger {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
