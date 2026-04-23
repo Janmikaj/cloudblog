@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const path = require('path');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const helmet = require('helmet');
@@ -41,6 +42,21 @@ app.use(express.json({ limit: '50mb' }));
 
 // Load routes
 app.use('/api', routes);
+
+// Serve frontend static files in production
+const frontendPath = path.join(__dirname, '../frontend/dist');
+app.use(express.static(frontendPath));
+
+// Handle SPA routing (redirect all non-API requests to index.html)
+app.get('*', (req, res, next) => {
+  if (req.path.startsWith('/api')) return next();
+  res.sendFile(path.join(frontendPath, 'index.html'), (err) => {
+    if (err) {
+      // If index.html is missing, it's likely we haven't built the frontend yet
+      res.status(404).send("Frontend build not found. Please run 'npm run build' in the frontend directory.");
+    }
+  });
+});
 
 const PORT = process.env.PORT || 5000;
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/vulnerable_blog';
