@@ -4,7 +4,7 @@ node_modules/
 dist/
 build/
 *.tar.gz
-server.crt
+server.crt5
 server.key
 backend/.env
 frontend/.env
