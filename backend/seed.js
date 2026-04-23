@@ -62,11 +62,11 @@ const topics = [
   { title: "Docker Containers: Beyond the Basics", img: "https://images.unsplash.com/photo-1605745341112-85968b19335b" },
   { title: "The Evolution of Cloud Native Applications", img: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d" },
   { title: "Penetration Testing Tools: ZAP, Burp, and More", img: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5" },
-  { title: "The Future of AI in Web Development", img: "https://images.unsplash.com/photo-1620712943543-bcc4628c6750" },
-  { title: "Serverless Computing: Pros and Cons", img: "https://images.unsplash.com/photo-1558494949-ef010ca68a92" },
-  { title: "Microservices vs Monoliths: A Practical Guide", img: "https://images.unsplash.com/photo-1597852074816-d933c7d2b988" },
+  { title: "The Future of AI in Web Development", img: "https://images.unsplash.com/photo-1677442136019-21780ecad995" },
+  { title: "Serverless Computing: Pros and Cons", img: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8" },
+  { title: "Microservices vs Monoliths: A Practical Guide", img: "https://images.unsplash.com/photo-1451187580459-43490279c0fa" },
   { title: "GraphQL vs REST: Which one to choose in 2026?", img: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97" },
-  { title: "Web Accessibility: Building Inclusive Applications", img: "https://images.unsplash.com/photo-1591189863430-ab87e120f312" }
+  { title: "Web Accessibility: Building Inclusive Applications", img: "https://images.unsplash.com/photo-1517048676732-d65bc937f952" }
 ];
 
 mongoose.connect(MONGO_URI)
