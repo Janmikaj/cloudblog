@@ -6,7 +6,6 @@ const commentSchema = new mongoose.Schema({
     ref: 'Blog'
   },
   name: String,
-  // Intentional Vulnerability: comment content not sanitized for XSS
   comment: String,
   createdAt: {
     type: Date,

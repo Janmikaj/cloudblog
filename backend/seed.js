@@ -1,5 +1,6 @@
 require('dotenv').config();
 const mongoose = require('mongoose');
+const bcrypt = require('bcrypt');
 const User = require('./models/User');
 const Blog = require('./models/Blog');
 const Comment = require('./models/Comment');
@@ -72,22 +73,31 @@ mongoose.connect(MONGO_URI)
     await Blog.deleteMany({});
     await Comment.deleteMany({});
 
-    // Create Multiple Users
+    // Hash Strong Passwords
+    const salt = await bcrypt.genSalt(10);
+    const adminHash = await bcrypt.hash('Admin@2026!', salt);
+    const editorHash = await bcrypt.hash('Editor#Secure99', salt);
+    const userHash = await bcrypt.hash('User$Pass42', salt);
+
+    // Create Multiple Users with Emails and Strong Hashes
     const adminUser = await User.create({
       username: 'admin',
-      password: '123456', 
+      email: 'admin@cloudblog.com',
+      password: adminHash, 
       role: 'admin'
     });
 
     const editorUser = await User.create({
       username: 'editor',
-      password: 'editorpassword', 
+      email: 'editor@cloudblog.com',
+      password: editorHash, 
       role: 'editor'
     });
 
     await User.create({
       username: 'user',
-      password: 'userpassword', 
+      email: 'user@cloudblog.com',
+      password: userHash, 
       role: 'user'
     });
 
